@@ -7,4 +7,10 @@ describe(SurveyTitle) do
     title = SurveyTitle.new({:survey_title => ''})
     expect(title.save()).to(eq(false))
   end
+
+  it("converts the first letter of the title to uppercase") do
+    title = SurveyTitle.create({:survey_title => "coffee preferences"})
+    expect(title.survey_title()).to(eq("Coffee preferences"))
+  end
+
 end

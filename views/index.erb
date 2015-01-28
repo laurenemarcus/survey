@@ -1,0 +1,35 @@
+<h1>Survey Generator</h1>
+
+<h3>Enter a survey title:</h3>
+
+<form action="/survey_titles" method="post">
+  <label for="survey_title">Survey Title:</label>
+  <input id="survey_title" name="survey_title" type="text">
+
+  <button type="submit">Add Title</button>
+</form>
+
+<p>Add questions to any survey:</p>
+
+<form action="/survey_questions" method="post">
+  <label for="survey_title_id">Title</label>
+  <select id="survey_title_id" name="survey_title_id" type="text">
+    <% @survey_titles.each() do |survey_title| %>
+    <option value="<%= survey_title.id()%>"> <%= survey_title.survey_title() %></option>
+    <% end %>
+  </select>
+
+  <label for="survey_question">Question:</label>
+  <input id="survey_question" name="survey_question" type="text">
+
+  <button type="submit">Add question</button>
+</form>
+<br>
+<br>
+<p>Survey Titles:</p>
+  <ul>
+    <% @survey_titles.each() do |survey_title| %>
+      <li><a href="/titles/<%= survey_title.id() %>/edit"><button type="button" class="btn btn-xs btn-success">Edit</button></a><%= survey_title.survey_title() %></li>
+  </ul>
+
+<% end %>
