@@ -30,6 +30,5 @@
   <ul>
     <% @survey_titles.each() do |survey_title| %>
       <li><a href="/titles/<%= survey_title.id() %>/edit"><button type="button" class="btn btn-xs btn-success">Edit</button></a><%= survey_title.survey_title() %></li>
+      <% end %>
   </ul>
-
-<% end %>
